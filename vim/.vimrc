@@ -1,3 +1,6 @@
+
+
+
 set ruler
 set autoread
 filetype indent plugin on
@@ -6,6 +9,27 @@ filetype indent plugin on
 " Description: Optimized for C/C++ development, but useful also for other things.
 " source: https://gist.github.com/rocarvaj/2513367 (original author: Gerhard Gappmeier)
 "
+
+" VIM-PLUG plugin manager
+" Automatically installs vim-plug if not installed
+" See: https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
+if empty(glob('~/.vim/autoload/plug.vim'))
+    :echo "vim-plug is missing on this machine. Installing it..."
+    :echo ""
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+" load Plugins.vim from the relative path of your vimrc
+source <sfile>:h/.vim/Plugins.vim
+" Initialize plugin system
+call plug#end()
+
+
 
 " set UTF-8 encoding
 set enc=utf-8
@@ -52,18 +76,28 @@ let g:cpp_member_variable_highlight = 1
 "let g:dracula_italic = 0 " This is to fix iTerm2 behavior (https://github.com/dracula/vim/issues/127). 
 "Better to fix iTerm2, see: https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/
 "colorscheme dracula
-" enbale dracula_pro
-packadd! dracula_pro
-syntax enable
-let g:dracula_colorterm = 0
-colorscheme dracula_pro
-"colorscheme dracula_pro_van_helsing
+if v:version < 800 " to see your version, type inside vim: ':echo v:version'
+    :echo "VIM version < 8, so I set 'Dracula' theme instead of Dracula_PRO"
+    syntax enable
+    colorscheme dracula
+    highlight Normal ctermbg=NONE
+else
+    " enbale dracula_pro
+    packadd! dracula_pro
+    syntax enable
+    let g:dracula_colorterm = 0
+    colorscheme dracula_pro
+    "colorscheme dracula_pro_van_helsing
+endif
 
 " enable italicised comments, if your theme doesn't set that already.
 " NOTE: 
 " - this should be put AFTER 'colorscheme' and any theme-related commands
 " - you must have a terminal which supports italic to use that effectively
+" - See:
+"   https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/#tmux-2.1-and-above
 highlight Comment cterm=italic
+
 
 " Modify the colors of the matching parenthesis, to make it more visible
 hi MatchParen cterm=bold ctermbg=green ctermfg=red
@@ -94,3 +128,8 @@ set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
 "set statusline+=\
+"
+ 
+syntax on
+colorscheme dracula
+
