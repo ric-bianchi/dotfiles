@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home_slc5/rbianchi/work/atlasexternals/MR_407/GeoModelDev/GeoModelKernel/external/GeoGenericFunctions'
+let g:netrw_dirhist_2='/home/rbianchi/vp1light/test_master-new-mojave-working/athena/Trigger/TrigEvent/TrigCaloEvent/docs'
+let g:netrw_dirhist_3='/home/rbianchi/athena/geo-materials-persistification-with-GeoModelStandalone-packages/athena/DetectorDescription/GeoModel/GeoModelStandalone'
+let g:netrw_dirhist_4='/home/rbianchi/athena/geo-materials-persistification-with-GeoModelStandalone-packages/athena/DetectorDescription/GeoModel/GeoModelStandalone/DumpGeo'
+let g:netrw_dirhist_5='/home/rbianchi/athena/geo-materials-persistification-with-GeoModelStandalone-packages/athena/DetectorDescription/GeoModel/GeoModelStandalone/DumpGeo/src'
+let g:netrw_dirhist_6='/home/rbianchi/atlasexternals/update_geomodel_320/atlasexternals/External/GeoModelIO'
