@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/Users/rbianchi/code_work_local/atlas/GeoModelDev/publishing-lists-FPV-AT/GeoModelPlugins/ToyGeometryPlugin_CustomStore'
+let g:netrw_dirhist_4='/Users/rbianchi/code_work_local/atlas/GeoModelDev/publishing-lists-FPV-AT/GeoModel/GeoModelExamples/HelloToy'
+let g:netrw_dirhist_3='/Users/rbianchi/code_work_local/atlas/GeoModelDev/publishing-lists-FPV-AT/GeoModel/GeoModelIO/GeoModelPublish'
+let g:netrw_dirhist_2='/Users/rbianchi/code_work_local/atlas/GeoModelDev/publishing-lists-FPV-AT/GeoModel/GeoModelIO/GeoModelPublish/GeoModelPublish'
+let g:netrw_dirhist_1='/Users/rbianchi/code_work_local/atlas/GeoModelDev/publishing-lists-FPV-AT/GeoModelPlugins/ToyGeometryPlugin'
