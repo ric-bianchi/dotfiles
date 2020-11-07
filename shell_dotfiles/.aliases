@@ -1,0 +1,14 @@
+
+# LOCAL ALIASES
+# location aliases
+alias rbianchipitt="ssh -X -Y rbianchipitt.cern.ch"
+alias codelocal="cd ${HOME}/code_work_local/"
+alias vp1ubu="ssh -X -Y ubuntu@vp1light-ubuntu-1804"
+alias vp1ubuclean="ssh -X -Y ubuntu@vp1light-ubuntu-1804-clean"
+alias vp1dev="ssh vp1-dev-slc6"
+alias lldb="PATH=/usr/bin/:$PATH lldb" # because lldb wants the system usr/bin/python
+
+# local bin folder for scripts
+export PATH=$HOME/bin:$PATH
+
+

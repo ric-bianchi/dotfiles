@@ -1,0 +1,49 @@
+
+###########
+# set Qt
+###########
+setupQtCommons(){
+    PATHQT=$1
+    export QMAKESPEC=$PATHQT/mkspecs/macx-clang;
+    PATH=$PATHQT/bin:$PATH;
+    export PATH;
+    export QTDIR=$PATHQT
+    export QTINC=$PATHQT/include
+    export QTLIB=$PATHQT/lib^[[?12;4$y
+
+    echo "Done."
+    echo "For compilers to find qt you may need to set:"
+    echo "    export LDFLAGS=\"-L$PATHQT/lib\""
+    echo "    export CPPFLAGS=\"-I$PATHQT/include\""
+    echo
+}
+setupQt5120() {
+    echo; echo "setting Qt 5.12.0...";
+    PATHQT=/Users/rbianchi/Qt5.12.0/5.12.0/clang_64
+    export QMAKESPEC=$PATHQT/mkspecs/macx-clang;
+    PATH=$PATHQT/bin:$PATH;^[OB
+    export PATH;
+    export QTDIR=$PATHQT
+    export QTINC=$PATHQT/include
+    export QTLIB=$PATHQT/lib
+}
+setupQt5Homebrew() {
+    echo; echo "setting Qt 5 from 'brew'...";
+    PATHQT=/usr/local/opt/qt
+    setupQtCommons "$PATHQT"
+}
+
+#################
+#Useful functions
+#################
+
+# capture the output of a running process
+# see: https://stackoverflow.com/a/33844061/320369
+capture() {
+    sudo dtrace -p "$1" -qn '
+        syscall::write*:entry
+        /pid == $target && arg0 == 1/ {
+            printf("%s", copyinstr(arg1, arg2));
+        }
+    '
+}
