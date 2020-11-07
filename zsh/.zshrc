@@ -1,12 +1,25 @@
+
 # Set TERM explicitly
-export TERM=xterm-256color
+case `uname` in
+  Darwin)
+    # commands for OS X go here
+    export TERM=xterm-256color-italic # custom terminfo. See: https://alexpearce.me/2014/05/italics-in-iterm2-vim-tmux/
+  ;;
+  Linux)
+    # commands for Linux go here
+    export TERM=xterm-256color
+  ;;
+  FreeBSD)
+    # commands for FreeBSD go here
+  ;;
+esac
 
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/afs/cern.ch/user/r/rbianchi/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
